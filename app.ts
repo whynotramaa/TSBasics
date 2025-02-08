@@ -22,7 +22,43 @@ interface Userr{
     gender ?: string //?: -->> makes this one param optional
 }
 
-function userData(obj: Userr){
+interface Admin extends Userr{
+    admin:boolean
+}
+
+function userData(obj: Admin){
     obj.email = "ramarama@gmail.com",
+    obj.admin = false
 
 }
+
+// two interface of samae names are merged and not treated individually 
+
+type uuser = {
+    name:"string",
+    email:"string"
+}
+
+type adminn = uuser & {
+    adminType: boolean
+}
+
+// interface and type is almost same but type doesnt support same name 
+
+
+class neww {
+    price = 30;
+    model = "toy";
+    names = "yeppp";
+}
+
+class Phone{
+    constructor(public name:string, public isGood:boolean, public camera:number = 2){}
+}
+
+let Sam = new Phone('S23FE', true);
+console.log(Sam)
+
+let b1 = new neww();
+console.log(b1)
+
